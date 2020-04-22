@@ -7,13 +7,14 @@ const Qualification = sequelize.define("qualification", {
   id: {
     type: Sequelize.INTEGER,
     primaryKey: true,
+    autoIncrement: true
   },
   qualification: {
     type: Sequelize.INTEGER,
   },
-  fk_id_course_subject_student_test: {
+  courseSubjectStudentTestId: {
     type: Sequelize.INTEGER,
-    foreignKey: 'fk_id_course_subject_student_test',
+    foreignKey: 'courseSubjectStudentTestId',
     references: {
       model: 'CourseSubjectStudentTest',
       key: 'id'
@@ -25,7 +26,7 @@ const Qualification = sequelize.define("qualification", {
   tableName: 'qualification'
 });
 
-Qualification.hasMany(courseSubjectStudentTest,{ foreignKey: 'fk_id_course_subject_student_test', sourceKey: 'id' });
-CourseSubjectStudentTest.belongsTo(Qualification, { foreignKey: 'fk_id_test', sourceKey: 'id'});
+Qualification.hasMany(CourseSubjectStudentTest,{ foreignKey: 'id', sourceKey: 'courseSubjectStudentTestId' });
+CourseSubjectStudentTest.hasOne(Qualification, { foreignKey: 'courseSubjectStudentTestId', sourceKey: 'id'});
 
 export default Qualification;

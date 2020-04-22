@@ -7,13 +7,14 @@ const Course = sequelize.define("course", {
   id: {
     type: Sequelize.INTEGER,
     primaryKey: true,
+    autoIncrement: true
   },
   name: {
     type: Sequelize.STRING,
   },
-  fk_id_teacher: {
+  teacherId: {
     type: Sequelize.INTEGER,
-    foreignKey: 'fk_id_teacher'
+    foreignKey: 'teacherId'
   },
 }, {
   timestamps: false,
@@ -24,11 +25,11 @@ Course.associate = (models) => {
   Course.belongsToMany(models.CourseSubject, {
     through: 'CourseSubject',
     as: 'subject',
-    foreignKey: 'fk_id_subject'
+    foreignKey: 'subjectId'
   });
 };
 
-Course.hasMany(Teacher,{ foreignKey: 'fk_id_teacher', sourceKey: 'id' });
-Teacher.belongsTo(Course, { foreignKey: 'fk_id_teacher', sourceKey: 'id'});
+Course.hasMany(Teacher,{ foreignKey: 'id', sourceKey: 'teacherId' });
+Teacher.hasOne(Course, { foreignKey: 'teacherId', sourceKey: 'id'});
 
 export default Course;

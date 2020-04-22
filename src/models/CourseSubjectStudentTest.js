@@ -5,18 +5,19 @@ const CourseSubjectStudentTest = sequelize.define("coursesubjectstudenttest", {
   id: {
     type: Sequelize.INTEGER,
     primaryKey: true,
+    autoIncrement: true
   },
-  fk_id_course_subject_student: {
+  courseSubjectStudentId: {
     type: Sequelize.INTEGER,
-    foreignKey: 'fk_id_course_subject_student',
+    foreignKey: 'courseSubjectStudentId',
     references: {
       model: 'CourseSubjectStudent',
       key: 'id'
     }
   },
-  fk_id_test: {
+  testId: {
     type: Sequelize.INTEGER,
-    foreignKey: 'fk_id_test',
+    foreignKey: 'testId',
     references: {
       model: 'Test',
       key: 'id'

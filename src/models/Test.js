@@ -5,6 +5,7 @@ const Test = sequelize.define("test", {
   id: {
     type: Sequelize.INTEGER,
     primaryKey: true,
+    autoIncrement: true
   },
   name: {
     type: Sequelize.STRING,
@@ -18,7 +19,7 @@ Test.associate = (models) => {
   Test.belongsToMany(models.CourseSubjectStudent, {
     through: 'CourseSubjectStudentTest',
     as: 'coursesubjectstudent',
-    foreignKey: 'fk_id_test'
+    foreignKey: 'testId'
   });
 };
 

@@ -11,6 +11,7 @@ const app = express();
 app.set('port', process.env.PORT || 3000);
 
 // Importacion de Routes
+import fakerRoutes from '../src/routes/faker';
 import studentRoutes from '../src/routes/student';
 import teacherRoutes from '../src/routes/teacher';
 import testRoutes from '../src/routes/test';
@@ -24,6 +25,7 @@ app.use(json());
 app.use(webpackDevMiddleware(webpack(webpackConfig)));
 
 // routes
+app.use('/api/faker', fakerRoutes);
 app.use('/api/student', studentRoutes);
 app.use('/api/teacher', teacherRoutes);
 app.use('/api/course', courseRoutes);

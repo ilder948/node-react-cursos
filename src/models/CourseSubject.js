@@ -5,18 +5,19 @@ const CourseSubject = sequelize.define("coursesubject", {
   id: {
     type: Sequelize.INTEGER,
     primaryKey: true,
+    autoIncrement: true
   },
-  fk_id_course: {
+  courseId: {
     type: Sequelize.INTEGER,
-    foreignKey: 'fk_id_course',
+    foreignKey: 'courseId',
     references: {
       model: 'Course',
       key: 'id'
     }
   },
-  fk_id_subject: {
+  subjectId: {
     type: Sequelize.INTEGER,
-    foreignKey: 'fk_id_subject',
+    foreignKey: 'subjectId',
     references: {
       model: 'Subject',
       key: 'id'
@@ -31,7 +32,7 @@ CourseSubject.associate = (models) => {
   CourseSubject.belongsToMany(models.CourseSubjectStudent, {
     through: 'CourseSubjectStudent',
     as: 'student',
-    foreignKey: 'fk_id_student'
+    foreignKey: 'studentId'
   });
 };
 

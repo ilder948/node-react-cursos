@@ -5,6 +5,7 @@ const Teacher = sequelize.define("teacher", {
   id: {
     type: Sequelize.INTEGER,
     primaryKey: true,
+    autoIncrement: true
   },
   name: {
     type: Sequelize.STRING,
