@@ -1,10 +1,11 @@
 import webpack from 'webpack';
 import htmlWebpackPlugin from 'html-webpack-plugin';
 import LiveReloadPlugin from 'webpack-livereload-plugin';
+import  "@babel/polyfill";
 
 export default {
   mode: 'development',
-  entry: './src/client/index.js',
+  entry: ["@babel/polyfill", "./src/client/index.js"],
   output: {
     path: '/',
     filename: 'bundle.js'
