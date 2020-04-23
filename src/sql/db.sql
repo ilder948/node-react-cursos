@@ -1,3 +1,5 @@
+CREATE DATABASE "course";
+
 DROP TABLE IF EXISTS "public"."course";
 CREATE TABLE "public"."course" (
   "id" SERIAL,

@@ -12,16 +12,19 @@ import ProfesorEdit from "./ProfesorEdit";
 import CursoList from "./CursoList";
 import CursoAgg from "./CursoAgg";
 import CursoEdit from "./CursoEdit";
+import CursoRamo from "./CursoRamo";
 
 import RamoList from "./RamoList";
 import RamoAgg from "./RamoAgg";
 import RamoEdit from "./RamoEdit";
+import RamoAlumno from "./RamoAlumno";
 
 import PruebaList from "./PruebaList";
 import PruebaAgg from "./PruebaAgg";
 import PruebaEdit from "./PruebaEdit";
 
 import AsignNota from "./AsigNota";
+
 import Admin from "./Admin";
 
 const Navbar = () => {
@@ -55,6 +58,12 @@ const Navbar = () => {
       <Switch>
         <Route path="/admin">
           <Admin></Admin>
+        </Route>
+        <Route path="/cursoRamo/:id">
+          <CursoRamo></CursoRamo>
+        </Route>
+        <Route path="/ramoAlumno/:id">
+          <RamoAlumno></RamoAlumno>
         </Route>
         <Route path="/alumnos">
           <AlumnoList></AlumnoList>

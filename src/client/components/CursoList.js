@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const CursoList = () => {
   const cursos = [
     {id:1,nombre:'A',accion:<div className='d-flex justify-content-around'>
-      <Link to={`/aggRamo`}><button type='button' className='btn btn-sm btn-primary'> Agregar Ramo</button></Link>
+      <Link to={`/cursoRamo/1`}><button type='button' className='btn btn-sm btn-primary'> Agregar Ramo</button></Link>
       <Link to={`/cursoEdit/1`}><button type='button' className='btn btn-sm btn-warning'> Editar</button></Link>
       <Link to="/cursoElim"><button type='button' className='btn btn-sm btn-danger'> Eliminar</button></Link>
       </div>},
